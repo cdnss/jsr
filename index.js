@@ -16,6 +16,7 @@ app.get('/api/render', async (req, res) => {
   try {
     const browser = await puppeteer.launch(
       {
+        ignoreDefaultArgs: ['--disable-extensions'],
         args: chrome.args,
         defaultViewport: chrome.defaultViewport,
         executablePath: await chrome.executablePath,
