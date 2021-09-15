@@ -15,14 +15,18 @@ app.get('/api/render', async (req, res) => {
   }
   try {
     const browser = await puppeteer.launch(
-      {
-        ignoreDefaultArgs: ['--disable-extensions'],
+process.env.NODE_ENV === 'production'
+      ? {
+      
+
         args: chrome.args,
         defaultViewport: chrome.defaultViewport,
         executablePath: await chrome.executablePath,
         headless: chrome.headless,
         ignoreHTTPSErrors: true,
-    });
+    } 
+: {}
+);
   
     const page = await browser.newPage();
     await page.goto(url, {waitUntil: 'networkidle0'});
