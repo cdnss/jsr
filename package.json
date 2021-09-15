@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/geshan/js-renderer#readme",
   "dependencies": {
-    "chrome-aws-lambda": "^3.1.1",
+    "chrome-aws-lambda": "latest",
     "express": "^4.17.1",
-    "puppeteer": "latest"
+    "puppeteer-core": "latest"
   }
 }
