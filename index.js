@@ -20,7 +20,6 @@ process.env.NODE_ENV === 'production'
       
 
         args: chrome.args,
-        defaultViewport: chrome.defaultViewport,
         executablePath: await chrome.executablePath,
         headless: chrome.headless,
         ignoreHTTPSErrors: true,
