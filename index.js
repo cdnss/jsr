@@ -8,11 +8,12 @@ app.get('/', (req, res) => {
   res.json({ message: 'alive' });
 });
 
-app.get('/api/render', async (req, res) => {
-  const url = req.query.url;
-  if (!url) {
+app.get('/v/*', async (req, res) => {
+  const urll = req.url;
+  if (!urll) {
     return res.send('please provide url');
   }
+let url = urll.replace('/v/', '');
   try {
     const browser = await puppeteer.launch(
 process.env.NODE_ENV === 'production'
