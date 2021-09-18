@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer-core');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.json({ message: 'alive' });
+  res.send('<a href="/v/https://github.com/vercel/next.js/tree/canary/examples/fast-refresh-demo">jjjjjj</a>');
 });
 
 app.get('/v/*', async (req, res) => {
