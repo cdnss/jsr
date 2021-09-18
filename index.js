@@ -22,7 +22,7 @@ process.env.NODE_ENV === 'production'
 
         args: chrome.args,
         executablePath: await chrome.executablePath,
-        headless: chrome.headless,
+        headless: false, //chrome.headless,
         ignoreHTTPSErrors: true,
     } 
 : {}
