@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer-core');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('<a href="/v/https://github.com/vercel/next.js/tree/canary/examples/fast-refresh-demo">jjjjjj</a>');
+  res.send('<a href="/v/https://d21.run/">jjjjjj</a>');
 });
 
 app.get('/v/*', async (req, res) => {
@@ -29,7 +29,13 @@ process.env.NODE_ENV === 'production'
 );
   
     const page = await browser.newPage();
-    page.setUserAgent('Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/28.2725; U; ru) Presto/2.8.119 Version/11.10');
+ await page.setUserAgent('Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/28.2725; U; ru) Presto/2.8.119 Version/11.10');
+await page.setExtraHTTPHeaders({
+    'upgrade-insecure-requests': '1'
+  });
+
+  await page.setRequestInterception(true);
+
     await page.goto(url, {waitUntil: 'networkidle0'});
     const pageContent = await page.content();
     console.log(`Response first 200 chars from ${url} : ${pageContent.substring(0, 200)}`);
