@@ -20,7 +20,7 @@ process.env.NODE_ENV === 'production'
       ? {
       
 
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        args: chrome.args,
         executablePath: await chrome.executablePath,
         headless: false, //chrome.headless,
         ignoreHTTPSErrors: true,
