@@ -28,15 +28,13 @@ process.env.NODE_ENV === 'production'
 : {}
 );
   
-    const page = await browser.newPage();
- await page.setUserAgent('Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/28.2725; U; ru) Presto/2.8.119 Version/11.10');
-await page.setExtraHTTPHeaders({
+  const page = await browser.newPage();
+  page.setUserAgent('Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/28.2725; U; ru) Presto/2.8.119 Version/11.10');
+  await page.setExtraHTTPHeaders({
     'upgrade-insecure-requests': '1'
   });
 
-  await page.setRequestInterception(true);
-
-    await page.goto(url, {waitUntil: 'networkidle0'});
+    await page.goto(url, {waitUntil: 'networkidle0', timeout:30000});
     const pageContent = await page.content();
     console.log(`Response first 200 chars from ${url} : ${pageContent.substring(0, 200)}`);
     await browser.close();
