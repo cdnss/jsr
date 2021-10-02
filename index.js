@@ -24,7 +24,7 @@ app.get('/v/*', async (req, res) => {
     executablePath: await chrome.executablePath,
     headless: false, //chrome.headless,
     ignoreHTTPSErrors: true,
-    dumpio: false,
+    defaultViewPorts: null,
 
    }: {}
   );
